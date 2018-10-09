@@ -3,6 +3,8 @@ window.onload=function(){
     next=0;
     let lia=document.querySelectorAll(".ban li")
     let lib=document.querySelectorAll(".nav li")
+    let aaa=document.querySelectorAll(".aaa")
+    console.log(aaa)
     function move(){
         next++;
         if(next>lia.length-1){
@@ -10,8 +12,10 @@ window.onload=function(){
         }
         lia[next].style.zIndex=15;
         lib[next].classList.add("hot");
+        aaa[next].style.zIndex=1;
         lia[now].style.zIndex=0;
         lib[now].classList.remove("hot");
+        aaa[now].style.zIndex=0;
         now=next;
     }
     let t=setInterval(move,2000)
@@ -23,6 +27,8 @@ window.onload=function(){
             else if(j>now){
                 lia[now].style.zIndex=0;
                 lia[j].style.zIndex=15;
+                aaa[now].style.zIndex=0;
+                aaa[j].style.zIndex=1;
                 lib[now].classList.remove("hot");
                 lib[j].classList.add("hot");
                 next=now=j;
@@ -30,6 +36,8 @@ window.onload=function(){
             else if(j<now){
                 lia[now].style.zIndex=0;
                 lia[j].style.zIndex=15;
+                aaa[now].style.zIndex=0;
+                aaa[j].style.zIndex=1;
                 lib[now].classList.remove("hot");
                 lib[j].classList.add("hot");
                 next=now=j;

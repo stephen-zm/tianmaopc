@@ -521,6 +521,18 @@
     display: block;
 }
 /*导航开始 */
+.wan{
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+.aaa{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 .banner{
     width: 1230px;
     height: 500px;
@@ -531,6 +543,7 @@
     width: 1230px;
     height: 500px;
     position: relative;
+    z-index: 2;
 }
 .ban li{
     width: 100%;
@@ -716,6 +729,9 @@
     width: 234px;
     height: 316px;
 }
+.od:hover{
+    opacity: 0.7;
+}
 .od img{
     width: 100%;
     height: 100%;
@@ -765,6 +781,9 @@
     width: 485px;
     height: 316px;
 }
+.md:hover{
+    opacity: 0.7;
+}
 .md img{
     width: 100%;
     height: 100%;
@@ -813,6 +832,9 @@
     display: block;
     width: 485px;
     height: 316px;
+}
+.nd:hover{
+    opacity: 0.7;
 }
 .nd img{
     width: 100%;
@@ -946,6 +968,9 @@
     position: relative;
     width: 235px;
     height: 618px;
+}
+.nrbleft:hover{
+    opacity: 0.7;
 }
 .img{
     display: block;
@@ -1114,6 +1139,12 @@
     position: relative;
     text-decoration: none;
     background: #fff;
+}
+.afirst:hover{
+    opacity: 0.7;
+}
+.afirst:hover .afone{
+    border: 1px solid #ff0036;
 }
 .afone {
     width: 234px;
@@ -1300,13 +1331,19 @@
     margin-bottom: 7px;
     background: #FFFFFF;
 }
+.wei li:hover{
+    opacity: 0.7;
+}
+.wei li:hover .as{
+    border: 1px solid #ff0036;
+}
 .wei li:last-child{
     margin-right: 0;
 }
 .as{
     text-decoration: none;
     display: block;
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     position: relative;
     background-color: #fff;
     overflow: hidden;
@@ -1489,6 +1526,7 @@
     top: 0;
     right: 0;
     background: #000;
+    z-index: 10;
 }
 .yone{
     width: 35px;
