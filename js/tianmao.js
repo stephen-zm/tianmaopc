@@ -4,7 +4,6 @@ window.onload=function(){
     let lia=document.querySelectorAll(".ban li")
     let lib=document.querySelectorAll(".nav li")
     let aaa=document.querySelectorAll(".aaa")
-    console.log(aaa)
     function move(){
         next++;
         if(next>lia.length-1){
@@ -45,27 +44,77 @@ window.onload=function(){
         }
     }
 
-
-
-
-
-
-
+    let arr1 = $(".daoshu").map(function(){
+        return $(this).offset().top
+    })
+    arr1 = arr1.toArray()
+    let arr = $(".nrone").map(function(){
+        return $(this).offset().top
+    })
+    arr = arr.toArray()
+    let flag = true;
     window.onscroll=function(){
-        sh=document.body.scrollTop || document.documentElement.scrollTop;
+        let sh=document.body.scrollTop || document.documentElement.scrollTop;
         let yfive=document.querySelector(".yfive")
+        let louceng=document.querySelector(".louceng")
+        let topa=document.querySelector(".top")
         if(sh>150){
             yfive.style.display="block";
         }
         else if(sh==0){
              yfive.style.display="none";
         }
+        else if(sh>600){
+            louceng.style.display="block";
+        }
+        if(sh>700){
+            topa.style.top=0;
+        }
+        else{
+            topa.style.top="-50px";
+        }
         yfive.onclick=function(){
 			animate(document.body,{scrollTop:0},2000);
 			animate(document.documentElement,{scrollTop:0},2000);
 		}
+        if(!flag){
+            return
+        }
+        sh>=600 ? $(".louceng").slideDown():$(".louceng").slideUp()
+        let index = arr.findIndex(item=>item>sh)
+        if(index>=0){
+            $(".rong")
+                .removeClass("active")
+                .eq(index)
+                .addClass("active")
+        }
 
+        let index1 = arr1.findIndex(item=>item>sh)
+        if(index1>=0){
+            $(".daoshu")
+                .removeClass("active")
+                .eq(index)
+                .addClass("active")
+        }
     }
+    $(".rong").click(function(){
+        let index = $(this).index()-1
+        console.log(index)
+        flag = false
+        $("html")
+        .stop()
+        .animate({scrollTop:arr[index]-200},function(){
+            flag = true
+        })
+        $(".rong")
+            .removeClass("active")
+            .eq(index)
+            .addClass("active")
+    })
+    $(".hit").click(function(){
+        animate(document.body,{scrollTop:0},2000);
+        animate(document.documentElement,{scrollTop:0},2000);
+    })
 
 
 
